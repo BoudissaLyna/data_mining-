@@ -1,0 +1,94 @@
+|--- STORAGE_SCORE <= 505.50
+|   |--- RAM_GB <= 15.00
+|   |   |--- PPI <= 214.75
+|   |   |   |--- LAPTOP_CONDITION <= 9.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 4.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |   |--- LAPTOP_CONDITION >  4.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |--- LAPTOP_CONDITION >  9.50
+|   |   |   |   |--- IS_GAMING <= 0.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |   |--- IS_GAMING >  0.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |--- PPI >  214.75
+|   |   |   |--- STORAGE_SCORE <= 255.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 8.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |   |--- LAPTOP_CONDITION >  8.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |--- STORAGE_SCORE >  255.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 9.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |   |   |--- LAPTOP_CONDITION >  9.50
+|   |   |   |   |   |--- class: Budget
+|   |--- RAM_GB >  15.00
+|   |   |--- PPI <= 169.62
+|   |   |   |--- IS_GAMING <= 0.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 9.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |   |   |--- LAPTOP_CONDITION >  9.50
+|   |   |   |   |   |--- class: Budget
+|   |   |   |--- IS_GAMING >  0.50
+|   |   |   |   |--- CPU_TIER <= 0.50
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |   |--- CPU_TIER >  0.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |--- PPI >  169.62
+|   |   |   |--- LAPTOP_CONDITION <= 7.50
+|   |   |   |   |--- PPI <= 196.80
+|   |   |   |   |   |--- class: High-End
+|   |   |   |   |--- PPI >  196.80
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |--- LAPTOP_CONDITION >  7.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 8.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |   |   |--- LAPTOP_CONDITION >  8.50
+|   |   |   |   |   |--- class: Mainstream
+|--- STORAGE_SCORE >  505.50
+|   |--- IS_GAMING <= 0.50
+|   |   |--- PPI <= 169.62
+|   |   |   |--- CPU_TIER <= 3.50
+|   |   |   |   |--- CPU_TIER <= 2.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |   |   |--- CPU_TIER >  2.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |   |--- CPU_TIER >  3.50
+|   |   |   |   |--- LAPTOP_CONDITION <= 4.50
+|   |   |   |   |   |--- class: High-End
+|   |   |   |   |--- LAPTOP_CONDITION >  4.50
+|   |   |   |   |   |--- class: High-End
+|   |   |--- PPI >  169.62
+|   |   |   |--- PPI <= 191.51
+|   |   |   |   |--- PPI <= 180.77
+|   |   |   |   |   |--- class: High-End
+|   |   |   |   |--- PPI >  180.77
+|   |   |   |   |   |--- class: High-End
+|   |   |   |--- PPI >  191.51
+|   |   |   |   |--- LAPTOP_CONDITION <= 7.50
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |   |--- LAPTOP_CONDITION >  7.50
+|   |   |   |   |   |--- class: Ultimate
+|   |--- IS_GAMING >  0.50
+|   |   |--- STORAGE_SCORE <= 977.00
+|   |   |   |--- PPI <= 248.63
+|   |   |   |   |--- CPU_TIER <= 2.50
+|   |   |   |   |   |--- class: High-End
+|   |   |   |   |--- CPU_TIER >  2.50
+|   |   |   |   |   |--- class: High-End
+|   |   |   |--- PPI >  248.63
+|   |   |   |   |--- LAPTOP_CONDITION <= 9.50
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |   |--- LAPTOP_CONDITION >  9.50
+|   |   |   |   |   |--- class: Mainstream
+|   |   |--- STORAGE_SCORE >  977.00
+|   |   |   |--- PPI <= 243.68
+|   |   |   |   |--- LAPTOP_CONDITION <= 4.50
+|   |   |   |   |   |--- class: High-End
+|   |   |   |   |--- LAPTOP_CONDITION >  4.50
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |--- PPI >  243.68
+|   |   |   |   |--- PPI <= 276.36
+|   |   |   |   |   |--- class: Ultimate
+|   |   |   |   |--- PPI >  276.36
+|   |   |   |   |   |--- class: Ultimate
