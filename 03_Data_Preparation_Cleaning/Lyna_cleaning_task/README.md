@@ -14,9 +14,9 @@
 - `DATA_CLEANING_PLAN_DETAILED_EXPLANATION.md` - Detailed strategy explanation
 
 ## Results
-- ✅ 100% data preserved (53,445 rows)
-- ✅ Intelligent imputation using market logic
-- ✅ Grade: A+ (95% quality)
+- 100% data preserved (53,445 rows)
+- Intelligent imputation using market logic
+- Grade: A+ (95% quality)
 
 ## Key Achievements
 - Used PRICE to infer LAPTOP_CONDITION (percentile-based)

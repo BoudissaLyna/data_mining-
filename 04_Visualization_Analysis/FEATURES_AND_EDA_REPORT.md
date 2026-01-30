@@ -1,16 +1,16 @@
-# 📊 Features Dictionary & EDA Insights Report
-**Project:** Algerian Laptop Market Analysis  
-**Dataset Version:** Master Cleaned (v2.0 - 42,419 rows)  
+# Features Dictionary & EDA Insights Report
+**Project:** Algerian Laptop Market Analysis 
+**Dataset Version:** Master Cleaned (v2.0 - 42,419 rows) 
 **Date:** January 29, 2026
 
 ---
 
-## 📝 Part 1: Feature Glossary (35 Features)
+## Part 1: Feature Glossary (35 Features)
 
 This dataset contains **35 features** structured to provide a 360-degree view of the laptop market. We have categorized them into **Original Features** and **Engineered Features**.
 
-### 🔹 Original Features (25)
-These were cleaned and standardized by the team (Lyna, Aya, Leena, Abdallah & Mimoun).
+### Original Features (25)
+These were cleaned and standardized by the team (Lyna, Aya, Leena, Abdallah  Mimoun).
 
 | Feature | Type | Description |
 | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ These were cleaned and standardized by the team (Lyna, Aya, Leena, Abdallah & Mi
 | `POST_YEAR` | Numeric | Year the listing was posted. |
 | `POST_MONTH` | Numeric | Month the listing was posted. |
 
-### 🛠️ Engineered Features (10)
+### ️ Engineered Features (10)
 These were created to help the models (Decision Trees, Clustering) understand complex relationships.
 
 | Feature | Goal | Logic |
@@ -58,7 +58,7 @@ These were created to help the models (Decision Trees, Clustering) understand co
 
 ---
 
-## 📈 Part 2: Key EDA Findings & Visualization Notes
+## Part 2: Key EDA Findings & Visualization Notes
 
 From our analysis of the 9 generated charts and the `EDA_and_insights.ipynb` notebook, here are the critical takeaways for your report:
 
@@ -85,14 +85,3 @@ From our analysis of the 9 generated charts and the `EDA_and_insights.ipynb` not
 - **Trust Factor:** By removing "NeedToBeFilled" and illegal outliers, our accuracy potential increased. We sacrificed quantity (removing ~36% of data) to ensure **High Quality** results.
 
 ---
-
-## 🛠️ Part 3: Why This Helps Your Modeling
-
-- **For Lyna (Classification):** Using `CPU_TIER` and `BRAND_TIER` instead of raw names will make your Decision Tree much "cleaner" and easier to read (Shorter trees, higher accuracy).
-- **For Aya (Clustering):** Use `PPI` and `STORAGE_SCORE` to find the clusters. You will likely see a "Premium Sharp Screen" cluster vs an "Old Office" cluster.
-- **For Leena (Association Rules):** Look for rules involving `IS_GAMING`. You'll find high-confidence rules like `{IS_GAMING=1} => {Price=Premium}`.
-- **For Abdallah & Mimoun (Anomaly):** Use `RAM_STORAGE_RATIO`. If someone lists a laptop with high RAM and high SSD (High Ratio) for a very low Price, it’s a **guaranteed scam/anomaly.**
-
----
-
-**Summary:** This dataset is now a "Professional Grade" data mining source. You have the raw physical details, the engineered market logic, and clear visual evidence to support your final report.

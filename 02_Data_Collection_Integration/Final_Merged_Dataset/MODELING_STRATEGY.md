@@ -12,36 +12,36 @@
 
 ---
 
-## 🎯 RECOMMENDED APPROACH: **DECISION TREES FOR REGRESSION**
+## RECOMMENDED APPROACH: **DECISION TREES FOR REGRESSION**
 
 ### Why Decision Trees are PERFECT for this problem:
 
-#### ✅ **1. Naturally Handles Price Prediction**
+#### **1. Naturally Handles Price Prediction**
 - Decision trees can do **regression** (predicting continuous values like price)
 - They create rules like: "IF RAM >= 16GB AND SSD >= 512GB AND Brand = APPLE THEN Price = 150,000 DZD"
 - This matches how laptop pricing actually works in the market!
 
-#### ✅ **2. Interpretable Results**
+#### **2. Interpretable Results**
 - You can see EXACTLY why a laptop is priced at X DZD
 - Example rule: "Gaming laptops (RTX GPU) with 16GB RAM cost 120,000-180,000 DZD"
 - Perfect for explaining to stakeholders
 
-#### ✅ **3. Handles Mixed Data Types**
+#### **3. Handles Mixed Data Types**
 - Categorical: BRAND, MODEL, CONDITION, STORAGE_TYPE
 - Numerical: RAM_GB, SSD_GB, SCREEN_SIZE, PRICE
 - Decision trees handle both naturally!
 
-#### ✅ **4. Captures Non-Linear Relationships**
+#### **4. Captures Non-Linear Relationships**
 - Price doesn't increase linearly with RAM (4GB→8GB is bigger jump than 32GB→64GB)
 - Decision trees capture this automatically
 
-#### ✅ **5. No Need for Feature Scaling**
+#### **5. No Need for Feature Scaling**
 - Unlike other methods, you don't need to normalize/standardize
 - Works directly with your cleaned data
 
 ---
 
-## 📊 COMPLETE MODELING PLAN
+## COMPLETE MODELING PLAN
 
 ### **Phase 1: Decision Tree Regression (PRIMARY)**
 
@@ -49,18 +49,18 @@
 ```python
 # Features to use
 X_features = [
-    'RAM_GB',           # Numerical
-    'SSD_GB',           # Numerical
-    'HDD_GB',           # Numerical
-    'SCREEN_SIZE',      # Numerical
-    'SCREEN_FREQUENCY_NUM',  # Numerical
-    'LAPTOP_BRAND',     # Categorical
-    'LAPTOP_MODEL',     # Categorical
-    'LAPTOP_CONDITION', # Categorical
-    'STORAGE_TYPE',     # Categorical
-    'SCREEN_RESOLUTION',# Categorical
-    'POST_YEAR',        # Numerical
-    'CITY'              # Categorical
+ 'RAM_GB', # Numerical
+ 'SSD_GB', # Numerical
+ 'HDD_GB', # Numerical
+ 'SCREEN_SIZE', # Numerical
+ 'SCREEN_FREQUENCY_NUM', # Numerical
+ 'LAPTOP_BRAND', # Categorical
+ 'LAPTOP_MODEL', # Categorical
+ 'LAPTOP_CONDITION', # Categorical
+ 'STORAGE_TYPE', # Categorical
+ 'SCREEN_RESOLUTION',# Categorical
+ 'POST_YEAR', # Numerical
+ 'CITY' # Categorical
 ]
 
 y_target = 'PRICE'
@@ -72,9 +72,9 @@ from sklearn.preprocessing import LabelEncoder
 
 # Encode categorical features
 for col in ['LAPTOP_BRAND', 'LAPTOP_MODEL', 'LAPTOP_CONDITION', 
-            'STORAGE_TYPE', 'SCREEN_RESOLUTION', 'CITY']:
-    le = LabelEncoder()
-    df[col + '_encoded'] = le.fit_transform(df[col])
+ 'STORAGE_TYPE', 'SCREEN_RESOLUTION', 'CITY']:
+ le = LabelEncoder()
+ df[col + '_encoded'] = le.fit_transform(df[col])
 ```
 
 #### **Step 3: Train Decision Tree**
@@ -85,15 +85,15 @@ from sklearn.metrics import mean_absolute_error, r2_score
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
+ X, y, test_size=0.2, random_state=42
 )
 
 # Train model
 dt_model = DecisionTreeRegressor(
-    max_depth=10,           # Prevent overfitting
-    min_samples_split=50,   # Require 50 samples to split
-    min_samples_leaf=20,    # Require 20 samples per leaf
-    random_state=42
+ max_depth=10, # Prevent overfitting
+ min_samples_split=50, # Require 50 samples to split
+ min_samples_leaf=20, # Require 20 samples per leaf
+ random_state=42
 )
 
 dt_model.fit(X_train, y_train)
@@ -119,14 +119,14 @@ print(tree_rules)
 
 # Example output:
 # |--- RAM_GB <= 8.0
-# |   |--- SSD_GB <= 256.0
-# |   |   |--- LAPTOP_BRAND_encoded <= 5.0
-# |   |   |   |--- value: [45000.0]  # Budget laptop
-# |   |--- SSD_GB > 256.0
-# |   |   |--- value: [65000.0]  # Mid-range laptop
+# | |--- SSD_GB <= 256.0
+# | | |--- LAPTOP_BRAND_encoded <= 5.0
+# | | | |--- value: [45000.0] # Budget laptop
+# | |--- SSD_GB > 256.0
+# | | |--- value: [65000.0] # Mid-range laptop
 # |--- RAM_GB > 8.0
-# |   |--- LAPTOP_BRAND_encoded <= 2.0  # Apple
-# |   |   |--- value: [180000.0]  # Premium laptop
+# | |--- LAPTOP_BRAND_encoded <= 2.0 # Apple
+# | | |--- value: [180000.0] # Premium laptop
 ```
 
 #### **Step 5: Feature Importance**
@@ -179,9 +179,9 @@ X_scaled = scaler.fit_transform(X_cluster)
 # Find optimal clusters (Elbow method)
 inertias = []
 for k in range(2, 11):
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(X_scaled)
-    inertias.append(kmeans.inertia_)
+ kmeans = KMeans(n_clusters=k, random_state=42)
+ kmeans.fit(X_scaled)
+ inertias.append(kmeans.inertia_)
 
 # Train with optimal K (likely 4-5)
 kmeans = KMeans(n_clusters=4, random_state=42)
@@ -189,10 +189,10 @@ df['Market_Segment'] = kmeans.fit_predict(X_scaled)
 
 # Analyze segments
 print(df.groupby('Market_Segment').agg({
-    'PRICE': ['mean', 'min', 'max'],
-    'RAM_GB': 'mean',
-    'SSD_GB': 'mean',
-    'LAPTOP_BRAND': lambda x: x.mode()[0]
+ 'PRICE': ['mean', 'min', 'max'],
+ 'RAM_GB': 'mean',
+ 'SSD_GB': 'mean',
+ 'LAPTOP_BRAND': lambda x: x.mode()[0]
 }))
 
 # Expected output:
@@ -220,14 +220,14 @@ from sklearn.tree import DecisionTreeClassifier
 
 # Create price categories
 def categorize_price(price):
-    if price < 60000:
-        return 'Budget'
-    elif price < 120000:
-        return 'Mid-Range'
-    elif price < 250000:
-        return 'Premium'
-    else:
-        return 'Ultra-Premium'
+ if price < 60000:
+ return 'Budget'
+ elif price < 120000:
+ return 'Mid-Range'
+ elif price < 250000:
+ return 'Premium'
+ else:
+ return 'Ultra-Premium'
 
 df['Price_Category'] = df['PRICE'].apply(categorize_price)
 
@@ -300,10 +300,10 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 
 ---
 
-## 🎯 RECOMMENDED IMPLEMENTATION ORDER
+## RECOMMENDED IMPLEMENTATION ORDER
 
 ### **Week 1: Decision Tree Regression (PRIMARY)**
-**Priority**: ⭐⭐⭐⭐⭐ (HIGHEST)
+**Priority**: (HIGHEST)
 
 **Why**: This directly solves your problem (price prediction)
 
@@ -320,7 +320,7 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 ---
 
 ### **Week 2: Clustering (SECONDARY)**
-**Priority**: ⭐⭐⭐⭐☆ (HIGH)
+**Priority**: (HIGH)
 
 **Why**: Provides market insights and validates pricing
 
@@ -336,7 +336,7 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 ---
 
 ### **Week 3: Classification (OPTIONAL)**
-**Priority**: ⭐⭐⭐☆☆ (MEDIUM)
+**Priority**: (MEDIUM)
 
 **Why**: Alternative approach, easier interpretation
 
@@ -352,7 +352,7 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 ---
 
 ### **Week 4: Association Rules (BONUS)**
-**Priority**: ⭐⭐☆☆☆ (LOW)
+**Priority**: (LOW)
 
 **Why**: Interesting insights but not core to price prediction
 
@@ -367,42 +367,42 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 
 ---
 
-## 📊 EVALUATION METRICS
+## EVALUATION METRICS
 
 ### **For Regression (Decision Tree)**:
 1. **Mean Absolute Error (MAE)**: Average price difference
-   - Target: < 10,000 DZD
+ - Target: < 10,000 DZD
 2. **R² Score**: How well model explains variance
-   - Target: > 0.85
+ - Target: > 0.85
 3. **Mean Absolute Percentage Error (MAPE)**: Percentage error
-   - Target: < 12%
+ - Target: < 12%
 
 ### **For Classification**:
 1. **Accuracy**: Overall correctness
-   - Target: > 85%
+ - Target: > 85%
 2. **Precision/Recall**: Per-category performance
-   - Target: > 80% for all categories
+ - Target: > 80% for all categories
 3. **Confusion Matrix**: Where errors occur
 
 ### **For Clustering**:
 1. **Silhouette Score**: Cluster quality
-   - Target: > 0.5
+ - Target: > 0.5
 2. **Within-cluster variance**: Compactness
-   - Lower is better
+ - Lower is better
 3. **Business validation**: Do segments make sense?
 
 ---
 
-## 🚀 FINAL RECOMMENDATION
+## FINAL RECOMMENDATION
 
 ### **PRIMARY METHOD: Decision Tree Regression**
 
 **Reasons**:
-1. ✅ Directly predicts price (your goal)
-2. ✅ Interpretable rules (explain why)
-3. ✅ Handles your data types naturally
-4. ✅ No complex preprocessing needed
-5. ✅ You've studied this in class
+1. Directly predicts price (your goal)
+2. Interpretable rules (explain why)
+3. Handles your data types naturally
+4. No complex preprocessing needed
+5. You've studied this in class
 
 **Expected Performance**:
 - Predict prices within ±10,000 DZD
@@ -411,44 +411,3 @@ print(rules_sorted[['antecedents', 'consequents', 'support', 'confidence', 'lift
 
 **Bonus**: Add clustering for market segmentation insights!
 
----
-
-## 📁 FOLDER STRUCTURE (ORGANIZED)
-
-```
-data_mining-/
-├── Lyna_cleaning_task/          # Your work
-│   ├── data_cleaning_notebook.ipynb
-│   ├── full_merged_dataset_CLEANED.csv
-│   └── DATA_CLEANING_PLAN_DETAILED_EXPLANATION.md
-│
-├── Leena's_cleaning_task/       # Leena's work
-│   ├── leena_cleaning_plan.md
-│   ├── leena_data_cleaning.ipynb
-│   └── cleaned_dataset_leena.csv
-│
-├── Aya's_cleaning_task/         # Aya's work
-│   ├── aya_cleaning_plan.md
-│   ├── aya_data_cleaning.ipynb
-│   └── cleaned_dataset_aya.csv
-│
-└── Final_Merged_Dataset/        # WORK HERE FOR MODELING
-    ├── FINAL_IMPROVED_CLEANED_DATASET.csv  ← Use this!
-    ├── FINAL_CLEANING_SUMMARY.md
-    ├── IMPROVED_LEENA_CLEANING_PLAN.md
-    ├── AYA_PLAN_ANALYSIS.md
-    ├── final_improved_cleaning.py
-    ├── data_cleaning_comparison.png
-    └── cleaning_statistics.csv
-```
-
----
-
-## ✅ NEXT STEPS
-
-1. **Review this plan** - Make sure you understand the approach
-2. **Start with Decision Tree Regression** - This is your main method
-3. **Add Clustering** - For market insights
-4. **Optional**: Try Classification and Association Rules
-
-**Ready to start modeling?** Let me know and I'll create the implementation code! 🚀

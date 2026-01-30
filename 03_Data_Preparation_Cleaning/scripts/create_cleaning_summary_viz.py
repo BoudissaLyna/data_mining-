@@ -17,10 +17,10 @@ ax1.grid(axis='y', alpha=0.3)
 
 # Add value labels on bars
 for bar, value in zip(bars, values):
-    height = bar.get_height()
-    ax1.text(bar.get_x() + bar.get_width()/2., height,
-             f'{value:,}',
-             ha='center', va='bottom', fontsize=12, fontweight='bold')
+ height = bar.get_height()
+ ax1.text(bar.get_x() + bar.get_width()/2., height,
+ f'{value:,}',
+ ha='center', va='bottom', fontsize=12, fontweight='bold')
 
 # Pie chart - Retention vs Removed
 retention_data = [53445, 13222]
@@ -28,7 +28,7 @@ retention_labels = ['Kept\n80.15%', 'Removed\n19.85%']
 retention_colors = ['#2ecc71', '#e74c3c']
 
 ax2.pie(retention_data, labels=retention_labels, colors=retention_colors, 
-        autopct='%1.1f%%', startangle=90, textprops={'fontsize': 12, 'fontweight': 'bold'})
+ autopct='%1.1f%%', startangle=90, textprops={'fontsize': 12, 'fontweight': 'bold'})
 ax2.set_title('Data Retention Rate', fontsize=16, fontweight='bold')
 
 plt.tight_layout()
@@ -40,7 +40,7 @@ plt.close()
 fig, ax = plt.subplots(figsize=(12, 6))
 
 reasons = ['Invalid/Missing\nPrice', 'Price\nOutliers', 'Missing Critical\nFeatures', 
-           'Inconsistent\nSpecs', 'Duplicates']
+ 'Inconsistent\nSpecs', 'Duplicates']
 counts = [4500, 3200, 2800, 1900, 822]
 percentages = [6.75, 4.80, 4.20, 2.85, 1.23]
 
@@ -51,10 +51,10 @@ ax.grid(axis='x', alpha=0.3)
 
 # Add value labels
 for i, (bar, count, pct) in enumerate(zip(bars, counts, percentages)):
-    width = bar.get_width()
-    ax.text(width, bar.get_y() + bar.get_height()/2.,
-            f'  {count:,} ({pct}%)',
-            ha='left', va='center', fontsize=11, fontweight='bold')
+ width = bar.get_width()
+ ax.text(width, bar.get_y() + bar.get_height()/2.,
+ f' {count:,} ({pct}%)',
+ ha='left', va='center', fontsize=11, fontweight='bold')
 
 plt.tight_layout()
 plt.savefig('visualizations/removal_breakdown.png', dpi=300, bbox_inches='tight')

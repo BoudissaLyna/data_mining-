@@ -57,7 +57,7 @@ df['CITY'] = df['CITY'].astype(str).replace(r'(?i)nan', 'Not Specified', regex=T
 # Removing ultra-outliers (anything above 1,000,000 DZD is likely a car or a mistake, or currency error)
 # High end gaming laptops in DZ are up to 600k-800k max.
 upper_bound = 800000 
-lower_bound = 5000  # Anything below 5k DZD is unlikely for a working laptop
+lower_bound = 5000 # Anything below 5k DZD is unlikely for a working laptop
 
 price_mask = (df['PRICE'] >= lower_bound) & (df['PRICE'] <= upper_bound)
 rows_before_price = df.shape[0]
@@ -68,8 +68,8 @@ print(f"Dropped {rows_before_price - df.shape[0]} rows with unrealistic prices (
 # Actually, let's just replace them with 'Generic' if we decide to keep them, or drop them.
 # Given the user's strong reaction, let's just remove them.
 for col in ['LAPTOP_BRAND', 'CPU', 'LAPTOP_CONDITION']:
-    mask = df[col].astype(str).str.contains(critical_placeholder, case=False, na=False)
-    df = df[~mask]
+ mask = df[col].astype(str).str.contains(critical_placeholder, case=False, na=False)
+ df = df[~mask]
 
 # Final result
 final_shape = df.shape
