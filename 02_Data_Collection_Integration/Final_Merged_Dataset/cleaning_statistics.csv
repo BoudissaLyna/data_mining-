@@ -1,0 +1,16 @@
+Feature,Team,Missing_Before,Missing_After,Method
+PRICE,You,0%,0%,Price-based
+LAPTOP_CONDITION,You,0%,0%,Price percentile
+LAPTOP_BRAND,You,40.3%,11.7%,Model inference
+LAPTOP_MODEL,You,40.9%,0%,Spec inference
+POST_YEAR,You,0%,0%,CPU generation
+POST_MONTH,You,0%,0%,Mode
+RAM_SIZE,Leena,7.6%,0%,Price-based
+RAM_TYPE,Leena,80.1%,0%,Year-based
+SSD_SIZE,Leena,46.1%,4.1%,Rescue+Impute
+HDD_SIZE,Leena,95.7%,94.8%*,Rescue+Impute
+STORAGE_TYPE,Leena,67.9%,0%,Derived
+SCREEN_SIZE,Aya,15.5%,0%,Median
+SCREEN_FREQUENCY,Aya,96.0%,0%,Gaming logic
+SCREEN_RESOLUTION,Aya,77.1%,0%,Price/Year/Size
+CITY,Aya,30.7%,30.7%,Normalized
