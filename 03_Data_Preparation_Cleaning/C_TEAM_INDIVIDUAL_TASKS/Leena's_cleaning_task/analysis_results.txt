@@ -1,0 +1,46 @@
+Total rows: 53445
+
+--- RAM_SIZE ---
+Missing (NeedToBeFilled): 4080 (7.63%)
+Unique values count: 48
+Sample values: ['4GB' '16GB' '8GB' '32GB' '256GB' '128GB' '2GB' '6GB' '64GB' '48GB'
+ '96GB' '36GB' '24GB' '12GB' '18GB' '40GB' '10GB' '14GB' '512MB' '20GB']
+
+--- RAM_TYPE ---
+Missing (NeedToBeFilled): 42808 (80.10%)
+Unique values count: 19
+Sample values: ['DDR4' 'DDR3' 'LPDDR5' 'DDR5' 'LPDDR5X' 'Unified' 'DDR5X' 'DDR4X' 'DDR'
+ 'LPDDR4' 'LPDDR4X' 'DDR6' 'DDR3L' 'LPDDR' 'LPDDR3' 'SDRAM' 'DDR4/DDR5'
+ 'DDR8' 'DDR2']
+
+--- SSD_SIZE ---
+Missing (NeedToBeFilled): 24652 (46.13%)
+Unique values count: 133
+Sample values: ['128GB' '1TB' '512GB' '256GB' '500GB' '250GB' '1000GB' '2TB' '8TB'
+ '1TB+240GB' '4TB' '16GB' '5TB' '2050GB' '2500GB' '3TB' '1500GB' '1024GB'
+ '8GB' '1TB 512GB']
+
+--- HDD_SIZE ---
+Missing (NeedToBeFilled): 51161 (95.73%)
+Unique values count: 81
+Sample values: ['145GB' '500GB' '4TB' '320GB' '300GB' '1TB' '10TB' '14GB' '90GB' '2000GB'
+ '2TB' '1256GB' '750GB' '950GB' '512GB' '1000GB' '1.5TB' '1024GB' '518GB'
+ '256GB']
+
+--- STORAGE_SIZE ---
+Missing (NeedToBeFilled): 36310 (67.94%)
+Unique values count: 746
+Sample values: ['240GO' '512GO' '256GO' '1024GO' '1TBGO' '1T+ SSD M2 256GO' '1TGO' '64GO'
+ 'Interne : ccd 512GB/ externe hdd 512GBGO' '1256GO' '128GO' '564GO'
+ '1500GB SSDGO' '1000GO' '500GO' '2000GO' '2 TBGO' '256 gb ssd nvmeGO'
+ '256 ssd nvmeGO' '640GO']
+
+--- STORAGE_TYPE ---
+Missing (NeedToBeFilled): 36233 (67.79%)
+Unique values count: 5
+Sample values: ['SSD' 'HDD' 'Autre' '2 disques SSD + HDD' 'Hybride / SSHD']
+
+--- Storage Logic Check ---
+Rows with both SSD and HDD missing: 22946
+Rows with STORAGE_SIZE present: 17135
+Rows with both SSD/HDD missing but STORAGE_SIZE present: 17135
